@@ -30,11 +30,18 @@ head(squirrels)
 str(squirrels)
 
 # filter to only include those w start dates between 2008 and 2017
-squirrels2 <- filter(squirrels, Start.date.year >= 2008 & Start.date.year <= 2017)
-str(squirrels2)
-head(squirrels2$Start.date.year)
+squirrels <- filter(squirrels, Start.date.year >= 2008 & Start.date.year <= 2017)
+str(squirrels)
+head(squirrels$Start.date.year)
 
 # rename Start.date.year col to just year
-squirrels2 <- rename(squirrels2, year = Start.date.year)
-str(squirrels2)
-head(squirrels2$year)
+squirrels <- rename(squirrels, year = Start.date.year)
+str(squirrels)
+head(squirrels$year)
+
+# remove entries where we don't know what the species is (red vs grey)
+squirrels <- filter(squirrels, Taxon.Rank == "species")
+print(squirrels$Common.name)
+print(squirrels$Taxon.Rank)
+
+# create species column w Red and Grey as factor levels
