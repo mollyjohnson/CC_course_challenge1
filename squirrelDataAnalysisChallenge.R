@@ -1,4 +1,4 @@
-###########################################################################
+################################################################################
 # Coding Club Stats From Scratch Course Challenge 1:
 # Red Squirrel Data Challenge
 # Description: Clean the dataset, determine if there is a temporal trend
@@ -7,5 +7,28 @@
 # and re-classify forest cover
 # Author: Molly Johnson, Oregon State University/Bradley University
 # Date: 8-14-2020
-###########################################################################
+################################################################################
 
+# libraries ----
+library(lme4)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(readr)
+library(gridExtra)
+
+# functions ----
+
+
+# set working directory ----
+
+
+# import data from .csv
+squirrels <- read.csv("data/squirrels.csv", header = TRUE)
+head(squirrels$Start.date.year)
+head(squirrels)
+str(squirrels)
+
+squirrels2 <- filter(squirrels, Start.date.year >= 2008 & Start.date.year <= 2017)
+str(squirrels2)
+head(squirrels2$Start.date.year)
