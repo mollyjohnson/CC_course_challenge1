@@ -29,6 +29,12 @@ head(squirrels$Start.date.year)
 head(squirrels)
 str(squirrels)
 
+# filter to only include those w start dates between 2008 and 2017
 squirrels2 <- filter(squirrels, Start.date.year >= 2008 & Start.date.year <= 2017)
 str(squirrels2)
 head(squirrels2$Start.date.year)
+
+# rename Start.date.year col to just year
+squirrels2 <- rename(squirrels2, year = Start.date.year)
+str(squirrels2)
+head(squirrels2$year)
